@@ -14,6 +14,11 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+        migrations.RunSQL(
+            sql='CREATE SCHEMA content',
+            reverse_sql='DROP SCHEMA content CASCADE',
+        ),
+
         migrations.CreateModel(
             name='Filmwork',
             fields=[

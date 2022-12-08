@@ -5,9 +5,11 @@ services:
     expose:
       - "8000"
     volumes:
-      - ./app/static:/opt/app/static
+      - ./app/static:/opt/app/static:rw
     env_file:
       - .env
+    depends_on:
+      - db
 
   nginx:
     image: nginx:latest
@@ -19,3 +21,14 @@ services:
       - backend
     ports:
       - "80:80"
+
+  db:
+    image: postgres:latest
+    volumes:
+      - ./db:/var/lib/postgresql/data:rw
+    env_file:
+      - .env
+    expose:
+      - "5432"
+volumes:
+  db:
