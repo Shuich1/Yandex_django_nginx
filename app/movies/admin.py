@@ -19,7 +19,7 @@ class GenreAdmin(admin.ModelAdmin):
 
 
 class RatingListFilter(admin.SimpleListFilter):
-    title = _('rating ')
+    title = _('Rating')
 
     parameter_name = 'rating'
 
