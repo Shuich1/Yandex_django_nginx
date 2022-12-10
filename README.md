@@ -10,7 +10,10 @@ This is a Django web app that uses Docker Compose to run a Django app with a Pos
 1. Clone the repository
 2. Create .env file in the root directory with template from example.env
 3. Run `docker-compose up` to build the images and run the containers
+4. Run `docker-compose run -v $(pwd)/sqlite_to_postgres:/sqlite_to_postgres -w /sqlite_to_postgres --entrypoint="/bin/bash -c" backend "python load_data.py"` to load data from sqlite to postgres
+5. Run `docker-compose run --entrypoint="/bin/bash -c" backend "python manage.py createsuperuser"` to create superuser
 
 ## Usage
 - The Django app will be available at http://localhost:8000
-- The PostgreSQL database will be available at port 5432 on the Docker host
+- The Django admin will be available at http://localhost:8000/admin
+- The Django API will be available at http://localhost:8000/api/v1/movies and http://localhost:8000/api/v1/movies/{id}

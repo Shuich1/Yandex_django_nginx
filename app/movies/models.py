@@ -27,7 +27,7 @@ class UUIDMixin(models.Model):
 
 class Genre(UUIDMixin, TimeStampedMixin):
     name = models.CharField(max_length=255, verbose_name=_('Name'))
-    description = models.TextField(blank=True, verbose_name=_('Description'))
+    description = models.TextField(blank=True, null=True, verbose_name=_('Description'))
 
     class Meta:
         db_table = "content\".\"genre"
@@ -40,8 +40,8 @@ class Genre(UUIDMixin, TimeStampedMixin):
 
 class Filmwork(UUIDMixin, TimeStampedMixin):
     title = models.CharField(max_length=255, verbose_name=_('Title'))
-    description = models.TextField(blank=True, verbose_name=_('Description'))
-    creation_date = models.DateField(verbose_name=_('Creation date'))
+    description = models.TextField(blank=True, null=True, verbose_name=_('Description'))
+    creation_date = models.DateField(verbose_name=_('Creation date'), null=True)
     file_path = models.FileField(
         max_length=255,
         verbose_name=_('File path'),
@@ -54,7 +54,7 @@ class Filmwork(UUIDMixin, TimeStampedMixin):
         blank=True,
         validators=[
             MinValueValidator(0),
-            MaxValueValidator(100)
+            MaxValueValidator(10)
         ]
     )
 
