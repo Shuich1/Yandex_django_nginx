@@ -14,6 +14,6 @@ This is a Django web app that uses Docker Compose to run a Django app with a Pos
 5. Run `docker-compose run --entrypoint="/bin/bash -c" backend "python manage.py createsuperuser"` to create superuser
 
 ## Usage
-- The Django app will be available at http://127.0.0.1:8000
-- The Django admin will be available at http://127.0.0.1:8000/admin
-- The Django API will be available at http://127.0.0.1:8000/movies and http://127.0.0.1:8000/movies/{id}
+- The Django app will be available at http://localhost
+- The Django admin will be available at http://localhost/admin
+- The Django API will be available at http://localhost/api/v1/movies and http://localhost/api/v1/movies/{id}

@@ -2,8 +2,8 @@ version: '3'
 services:
   backend:
     build: app
-    ports:
-      - "8000:8000"
+    expose:
+      - "8000"
     volumes:
       - ./app/static:/opt/app/static:rw
       - ./app/media:/opt/app/media:rw
