@@ -1,10 +1,16 @@
-# Описание задания на 2 спринт
- 
-Описание структуры и порядок выполнения проекта:
+Django + Nginx + PostgreSQL + Docker Compose Web App
+===============================================
+This is a Django web app that uses Docker Compose to run a Django app with a PostgreSQL database and Nginx web server.
 
-1. `docker_compose` — задача про настройку Nginx, Docker и Django.
-2. `django_api` — задача про реализацию API для выдачи информации о фильме.
+## Requirements
+- Docker
+- Docker Compose
 
-Напоминаем, что все части работы нужно сдавать на ревью одновременно.
+## Installation
+1. Clone the repository
+2. Create .env file in the root directory with template from example.env
+3. Run `docker-compose up` to build the images and run the containers
 
-Успехов!
+## Usage
+- The Django app will be available at http://localhost:8000
+- The PostgreSQL database will be available at port 5432 on the Docker host
