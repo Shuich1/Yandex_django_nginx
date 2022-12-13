@@ -4,8 +4,7 @@ from django.http import JsonResponse
 from django.views.generic.list import BaseListView
 from django.views.generic.detail import BaseDetailView
 
-from movies.models import Filmwork
-
+from movies.models import Filmwork, PersonFilmwork
 
 class MoviesApiMixin:
     model = Filmwork
@@ -23,17 +22,17 @@ class MoviesApiMixin:
                 actors=ArrayAgg(
                     'persons__full_name',
                     distinct=True,
-                    filter=Q(persons__personfilmwork__role='actor')
+                    filter=Q(persons__personfilmwork__role=PersonFilmwork.Role.ACTOR)
                 ),
                 directors=ArrayAgg(
                     'persons__full_name',
                     distinct=True,
-                    filter=Q(persons__personfilmwork__role='director')
+                    filter=Q(persons__personfilmwork__role=PersonFilmwork.Role.DIRECTOR)
                 ),
                 writers=ArrayAgg(
                     'persons__full_name',
                     distinct=True,
-                    filter=Q(persons__personfilmwork__role='writer')
+                    filter=Q(persons__personfilmwork__role=PersonFilmwork.Role.WRITER)
                 ),
         )
 

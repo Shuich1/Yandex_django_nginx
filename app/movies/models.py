@@ -159,9 +159,9 @@ class PersonFilmwork(UUIDMixin):
     )
 
     class Role(models.TextChoices):
-        DIRECTOR = 'DIRECTOR', _('Director')
-        ACTOR = 'ACTOR', _('Actor')
-        WRITER = 'WRITER', _('Writer')
+        DIRECTOR = 'director', _('Director')
+        ACTOR = 'actor', _('Actor')
+        WRITER = 'writer', _('Writer')
 
     role = models.CharField(
         max_length=255,
